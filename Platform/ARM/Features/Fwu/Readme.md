@@ -351,6 +351,7 @@ FVP_Base_RevC-2xAEMvA -R -I \
 ## Test
 You can test using Capsule Image generated in **How to generate Capsule Image** with:
 
+Classic way (Capsule on disk):
   1) CapsuleApp
     In UEFI shell with the following command, It can update firmware.
 ```
@@ -361,6 +362,14 @@ You can test using Capsule Image generated in **How to generate Capsule Image** 
     In Linux, It can update firmware with the following command:
 ```
   sudo fwupdate --apply 49757d90-6c22-11ee-a556-1757eba0420c fip_fvp.cap
+```
+
+Runtime Capsule Update:
+
+  If FmpDevicePkg is built with FmpDxeRuntime.inf,
+  You can test runtime capsule update in linux with the following command:
+```
+  sudo cat fip_fvp.cap > /dev/efi_capsule_loader
 ```
 
 # References
